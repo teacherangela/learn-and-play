@@ -231,7 +231,7 @@
     <header>
         <div class="teacher-badge">Educational Resource</div>
         <h1><span class="blue">Play & Learn</span> <span class="pink">with Teacher Angela!</span></h1>
-        <p class="intro-text">Interactive games designed for high engagement on touchscreens, iPads, and computers.</p>
+        <p class="intro-text">Fun, interactive HTML games designed to help children master language skills at home or in the classroom.</p>
     </header>
 
     <main class="portal-container">
@@ -302,25 +302,13 @@
             }
         }
 
+        // Only the button toggles fullscreen now
         ['click', 'touchstart'].forEach(evt => {
             fsToggle.addEventListener(evt, (e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 toggleFullscreen();
             }, { passive: false });
-        });
-
-        const triggerAutoFS = () => {
-            if (!document.fullscreenElement && !document.webkitFullscreenElement) {
-                toggleFullscreen();
-            }
-            ['click', 'touchstart'].forEach(evt => {
-                document.removeEventListener(evt, triggerAutoFS);
-            });
-        };
-
-        ['click', 'touchstart'].forEach(evt => {
-            document.addEventListener(evt, triggerAutoFS, { once: true });
         });
 
         const updateIcon = () => {
